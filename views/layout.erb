@@ -21,32 +21,56 @@
 				<script src="/build/jquery.datetimepicker.full.js"></script>
 	</head>
 	<body>
+		
+<div class="container">
+		
+		<nav class="navbar navbar-expand-lg text-yellow bg-dark">
+  
+    <a class="navbar-brand" href="/"><h2>BarberShopHQ</h2></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="text-yellow" >
+
+        <li class="nav-item-yellow">
+          <a class="nav-link active" aria-current="page" href="/visit">Visit</a>
+          
+        </li>
+        <li class="nav-item">
+          
+          <a class="nav-link active" aria-current="page" href="/contacts">Contacts</a>
+          
+        </li>
+        <li class="nav-item">
+          
+          <a class="nav-link active" aria-current="page" href="/admin">Administration</a>
+        </li>
+        </li>
+        
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+		</br>
+
 		<div class="container">
 
-			<!-- Static navbar -->
-			<nav class="navbar navbar-default" role="navigation">
-			  <div class="navbar-header">
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			      <span class="sr-only">Toggle navigation</span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			    </button>
-			    <a class="navbar-brand" href="/">My Website</a>
-			  </div>
-			  <div class="navbar-collapse collapse">
-			    <ul class="nav navbar-nav">
-			      <li><a href="/blabla">Blabla</a></li>
-			      <li><a href="/visit">To write </a></li>
-			      <li><a href="/contacts">Contacts</a></li>
-			    </ul>
-			  </div><!--/.nav-collapse -->
-			</nav>
+			
 
 			<div>
 			      <%if @error && @error.length > 0 then %>
 			          <div class="alert alert-danger"><%=@error%></div>
-			          <%elsif @error && @error3.length > 0 then %>
+			          <%elsif @error3 && @error3.length > 0 then %>
 			          <div class="alert alert-danger"><%=@error3%></div>
 			      <% end %>
 			      <%= yield %>

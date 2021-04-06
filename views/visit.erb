@@ -17,7 +17,7 @@
     <input id="aaa" name ='date' type="text" class="form-control"  >
     </div>
 
-    <select class="form-select ccc" name="barbers" aria-label="Default select example" value = "<%=@barbers%>" >
+    <select class="form-select ccc" name="barber" aria-label="Default select example" value = "<%=@barber%>" >
   <!-- <option >Выберите парикмахера</option>
   <option >  </option>
    <option <%= @barber == "Walter White" ? 'selected' : "Выберите парикмахера"%>>Walter White</option>
@@ -25,12 +25,14 @@
   <option <%= @barber == "Michael Ehrmantrauth" ? 'selected' : "Выберите парикмахера"%>>Michael Ehrmantrauth</option>   -->
 
   <% @barbers.each do |item| %>
-  <option <%= @barbers == item['NAME'] ? 'selected' : "Выберите парикмахера"%>> <%= item['NAME'] %></option>
+  <option <%= @barbers == item['name'] ? 'selected' : "Выберите парикмахера"%>> <%= item['name'] %></option>
     <% end%>
       
     
 </select> 
+</br>
 <div class="mb-3">
+  <br>
     <label  class="form-label">Выберите цвет краски</label>
     <select id="color" name="color">
   <option value="#7bd148">Green</option>

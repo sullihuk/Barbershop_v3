@@ -6,6 +6,11 @@ require 'sinatra/activerecord'
 
 
 
+before do 
+	@barbers = Barber.order "created_at DESC"
+end
+
+
 
 set :database, { adapter: 'sqlite3', database: 'barbershop.db' }
 
@@ -15,9 +20,9 @@ end
 class Barber < ActiveRecord::Base
 end
 
-before do 
-	@barbers = Barber.order "created_at DESC"
+class Message < ActiveRecord::Base
 end
+
 
 
 get '/' do
@@ -30,15 +35,37 @@ get '/visit' do
 end
 
 post '/visit' do
+	
+
 	@username = params[:username]
 	@phone = params[:phone]
 	@date = params[:date]
-	@barbers = params[:barbers]
+	@barber = params[:barber]
 	@color = params[:color]
 	
+	Client.create :name => @username,
+				  :phone => @phone, 
+				  :datestamp => @date, 
+				  :barber => @barber,
+				  :color => @color
 
 	
 
 	erb :visit
 		
+end
+
+get '/contacts' do
+	erb :contacts
+end
+
+post '/contacts' do
+
+	@email = params[:email]
+	@message = params[:message]
+
+	Message.create :mail => @email,
+				   :message => @message	
+
+	erb :contacts
 end
