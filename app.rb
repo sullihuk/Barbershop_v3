@@ -36,6 +36,7 @@ end
 
 post '/visit' do
 	
+	@thanx = 'Блаходарочка!'
 
 	@username = params[:username]
 	@phone = params[:phone]
