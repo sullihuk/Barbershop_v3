@@ -37,19 +37,23 @@ end
 post '/visit' do
 	
 	@thanx = 'Блаходарочка!'
-
-	@username = params[:username]
-	@phone = params[:phone]
-	@date = params[:date]
-	@barber = params[:barber]
-	@color = params[:color]
+#По-ламерски
+	# @username = params[:username]
+	# @phone = params[:phone]
+	# @date = params[:date]
+	# @barber = params[:barber]
+	# @color = params[:color]
 	
-	Client.create :name => @username,
-				  :phone => @phone, 
-				  :datestamp => @date, 
-				  :barber => @barber,
-				  :color => @color
+	# Client.create :name => @username,
+	# 			  :phone => @phone, 
+	# 			  :datestamp => @date, 
+	# 			  :barber => @barber,
+	# 			  :color => @color
 
+# По-нормальному
+
+c = Client.new params[:client]
+c.save
 	
 
 	erb :visit
