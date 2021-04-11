@@ -15,6 +15,11 @@ end
 set :database, { adapter: 'sqlite3', database: 'barbershop.db' }
 
 class Client < ActiveRecord::Base 
+	validates :name, presence:true
+	validates :phone, presence:true
+	validates :datestamp, presence:true
+	validates :color, presence:true
+	validates :barber, presence:true
 end
 
 class Barber < ActiveRecord::Base
@@ -31,12 +36,13 @@ get '/' do
 end
 
 get '/visit' do
+	@c = Client.new
 	erb :visit
 end
 
 post '/visit' do
 	
-	@thanx = 'Блаходарочка!'
+	
 #По-ламерски
 	# @username = params[:username]
 	# @phone = params[:phone]
@@ -52,11 +58,18 @@ post '/visit' do
 
 # По-нормальному
 
-c = Client.new params[:client]
-c.save
-	
+@c = Client.new params[:client]
+@c.save
 
-	erb :visit
+		if @c.save 
+			@thanx = 'Блаходарочка!'
+			erb :visit
+		else
+			@error = @c.errors.full_messages.first
+			erb :visit
+		end	
+
+	#erb :visit
 		
 end
 

@@ -1,23 +1,23 @@
 <h2> Записаться </h2>
 
 <%= @thanx %>
-
+<%= @error %>
 <form action="/visit" method="POST">
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Ваше имя</label>
-    <input name="client[name]" type="text" class="form-control ccc" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="напишите ваше имя" value="<%= %>" >
+    <input name="client[name]" type="text" class="form-control ccc" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="напишите ваше имя" value="<%=@c.name %>" >
     </div>
     <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Ваш телефон</label>
-    <input name="client[phone]" type="text" class="form-control" id="bbb" aria-describedby="emailHelp"  placeholder="напишите ваш телефон" value="<%= %>" >
+    <input name="client[phone]" type="text" class="form-control" id="bbb" aria-describedby="emailHelp"  placeholder="напишите ваш телефон" value="<%=@c.phone %>" >
     </div>
     <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label" >Когда Вас ждать</label>
-    <input id="aaa" name ='client[datestamp]' type="text" class="form-control"  >
+    <input id="aaa" name ='client[datestamp]' type="text" class="form-control" value = "<%=@c.datestamp%>" >
     </div>
 
-     <select class="form-select ccc" name="client[barber]" aria-label="Default select example" value = "<%=@barber%>" >
+     <select class="form-select ccc" name="client[barber]" aria-label="Default select example" value = "<%=@c.barber%>" >
    <option >Выберите парикмахера</option>
   
 
@@ -31,7 +31,7 @@
 <div class="mb-3">
   <br>
     <label  class="form-label">Выберите цвет краски</label>
-    <select id="color" name="client[color]">
+    <select id="color" name="client[color]" value = "<%=@c.color%>">
   <option value="#7bd148">Green</option>
   <option value="#5484ed">Bold blue</option>
   <option value="#a4bdfc">Blue</option>
